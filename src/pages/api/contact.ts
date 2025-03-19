@@ -17,7 +17,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (req.method !== "POST") {
     return res.status(405).json({ message: "Méthode non autorisée" });
   }
-
+  const transporter = nodemailer.createTransport({
+    host: process.env.SMTP_HOST, // ex: "smtp.gmail.com"
+    port: process.env.SMTP_PORT ? parseInt(process.env.SMTP_PORT) : 587,
+    secure: false, // false pour STARTTLS, true pour SSL/TLS
+    auth: {
+      user: process.env.SMTP_USER,
+      pass: process.env.SMTP_PASS,
+    },
+  });
+  
   const { name, email, message } = req.body;
 
   if (!name || !email || !message) {
