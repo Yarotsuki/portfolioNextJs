@@ -4,11 +4,11 @@ import { products } from "@/constants/products";
 import { Product } from "@/types/products";
 import { Metadata } from "next";
 
-type Props = {
+interface PageProps {
   params: { slug: string };
-};
+}
 
-export async function generateMetadata({ params }: Props): Promise<Metadata> {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = params;
   const product = products.find((p) => p.slug === slug) as Product | undefined;
   if (product) {
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default function SingleProjectPage({ params }: { params: { slug: string } }) {
+export default function SingleProjectPage({ params }: PageProps) {
   const { slug } = params;
   const product = products.find((p) => p.slug === slug);
 
