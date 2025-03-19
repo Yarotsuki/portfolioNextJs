@@ -4,11 +4,15 @@ import { products } from "@/constants/products";
 import { Product } from "@/types/products";
 import { Metadata } from "next";
 
-interface PageProps {
-  params: { slug: string };
+// Définition correcte des types pour Next.js 13+
+type Props = {
+  params: {
+    slug: string
+  },
+  searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = params;
   const product = products.find((p) => p.slug === slug) as Product | undefined;
   if (product) {
@@ -25,7 +29,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   }
 }
 
-export default function SingleProjectPage({ params }: PageProps) {
+export default async function SingleProjectPage({ params }: Props) {
   const { slug } = params;
   const product = products.find((p) => p.slug === slug);
 
