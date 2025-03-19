@@ -27,15 +27,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   try {
     console.log("Creating transporter...");
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST, // ex: "smtp.gmail.com"
-      port: process.env.SMTP_PORT ? parseInt(process.env.SMTP_PORT) : 587,
-      secure: false, // false pour STARTTLS, true pour SSL/TLS
-      auth: {
-        user: process.env.SMTP_USER,
-        pass: process.env.SMTP_PASS,
-      },
+      service: "Gmail",
+      auth: { user: process.env.SMTP_USER, pass: process.env.SMTP_PASS },
     });
-    
 
     console.log("Sending email to recipient...");
     // 📩 Email reçu par toi
