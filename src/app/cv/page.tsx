@@ -6,7 +6,7 @@ export default function Cv(){
     <h1 className="text-3xl font-bold mb-4">Mon CV</h1>
     <p className="text-gray-600 mb-6">Cliquez sur le bouton ci-dessous pour télécharger mon CV.</p>
     <a
-      href="/cv/CV_CORBEL_Victorien.pdf"
+      href="/cv/CV_Corbel.pdf"
       download
       className="flex items-center justify-center gap-2 bg-blue-600 text-white px-6 py-3 rounded-lg shadow-md hover:bg-blue-700 transition"
     >
