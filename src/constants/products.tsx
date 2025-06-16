@@ -29,7 +29,7 @@ export const products = [
     ),
   },
   {
-    href: "https://www.bqt-couverture.fr/",
+    
     title: "BQT Couverture",
     description:
       "Site internet pour une entreprise de couverture a Mortagne au Perche.",
