@@ -26,10 +26,11 @@ export const Products = () => {
             transition={{ duration: 0.2, delay: idx * 0.1 }}
           >
             <Link
-              href={product.slug ? `/projects/${product.slug}` : product.href}
-              key={product.href}
-              className="group flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 hover:bg-gray-50 rounded-2xl transition duration-200 pt-4"
-            >
+  href={product.slug ? `/projects/${product.slug}` : product.href ?? "#"}
+  key={product.href ?? idx}
+  className="group flex flex-col md:flex-row space-y-4 md:space-y-0 md:space-x-4 hover:bg-gray-50 rounded-2xl transition duration-200 pt-4"
+>
+
               {/* Assurez-vous que l'image est correctement importée et utilisée */}
               {product.thumbnail && (
                 <Image
