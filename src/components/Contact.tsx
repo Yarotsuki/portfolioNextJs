@@ -10,6 +10,10 @@ const defaultFormState = {
     value: "",
     error: "",
   },
+  topic: {
+    value: "",
+    error: "",
+  },
   message: {
     value: "",
     error: "",
@@ -31,6 +35,7 @@ export const Contact = () => {
       body: JSON.stringify({
         name: formData.name.value,
         email: formData.email.value,
+        topic: formData.topic.value,
         message: formData.message.value,
       }),
     });
@@ -80,6 +85,22 @@ export const Contact = () => {
           }}
         />
       </div>
+      <input
+          type="text"
+          placeholder="Object"
+          className="bg-neutral-100 focus:outline-none focus:ring-2 focus:ring-neutral-200 px-2 py-2 rounded-md text-sm text-neutral-700 w-full mt-4"
+          value={formData.topic.value}
+          onChange={(e) => {
+            setFormData({
+              ...formData,
+              topic: {
+                value: e.target.value,
+                error: "",
+              },
+            });
+          }}
+        />
+      
       <div>
         <textarea
           placeholder="Your Message"
