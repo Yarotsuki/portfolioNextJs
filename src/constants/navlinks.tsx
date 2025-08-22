@@ -7,6 +7,8 @@ import {
 
 } from "@tabler/icons-react";
 
+import { DiCodepen } from "react-icons/di";
+
 export const navlinks = [
   {
     href: "/",
@@ -24,6 +26,12 @@ export const navlinks = [
     icon: IconBriefcase2,
   },
   {
+    href: "/services",
+    label: "Services",
+    icon: DiCodepen
+
+  },
+  {
     href: "/contact",
     label: "Contact",
     icon: IconMail,
@@ -32,6 +40,8 @@ export const navlinks = [
     href: "/cv",
     label: "CV",
     icon: IconFileCv,
-  }
+  },
+  
+  
   
 ];
