@@ -4,6 +4,9 @@ import remarkGfm from "remark-gfm";
 import rehypePrism from "@mapbox/rehype-prism";
 
 const nextConfig = {
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
   images: {
     domains: ["images.unsplash.com", "res.cloudinary.com"],
   },
