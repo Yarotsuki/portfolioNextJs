@@ -1,53 +1,31 @@
-import type { NextApiRequest, NextApiResponse } from "next"
+import { NextResponse } from "next/server"
 import nodemailer from "nodemailer"
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
-  // Set CORS headers
-  res.setHeader("Access-Control-Allow-Credentials", "true")
-  res.setHeader("Access-Control-Allow-Origin", "*")
-  res.setHeader("Access-Control-Allow-Methods", "GET,OPTIONS,PATCH,DELETE,POST,PUT")
-  res.setHeader(
-    "Access-Control-Allow-Headers",
-    "X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version",
-  )
-
-  // Handle OPTIONS request for CORS preflight
-  if (req.method === "OPTIONS") {
-    return res.status(200).end()
-  }
-
-  if (req.method !== "POST") {
-    return res.status(405).json({ message: "Méthode non autorisée" })
-  }
-
-  const { name, email, message } = req.body
-
-  if (!name || !email || !message) {
-    return res.status(400).json({ message: "Tous les champs sont obligatoires" })
-  }
-
-  // Check if environment variables are set
-  if (!process.env.SMTP_USER || !process.env.SMTP_PASS || !process.env.EMAIL_TO) {
-    console.error("Missing environment variables")
-    return res.status(500).json({ message: "Configuration du serveur incomplète" })
-  }
-
+export async function POST(req: Request) {
   try {
-    console.log("Creating transporter...")
-    // Create only one transporter
+    const { name, email, message } = await req.json()
+
+    if (!name || !email || !message) {
+      return NextResponse.json({ message: "Tous les champs sont obligatoires" }, { status: 400 })
+    }
+
+    if (!process.env.SMTP_USER || !process.env.SMTP_PASS || !process.env.EMAIL_TO) {
+      console.error("Missing environment variables")
+      return NextResponse.json({ message: "Configuration du serveur incomplète" }, { status: 500 })
+    }
+
     const transporter = nodemailer.createTransport({
-      service: "Gmail", // Using Gmail service instead of custom SMTP
+      service: "Gmail",
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
     })
 
-    console.log("Sending email to recipient...")
-    // Email to you
+    // Email à toi
     await transporter.sendMail({
-      from: `"Contact Form" <${process.env.SMTP_USER}>`, // Use your email as sender to avoid spam filters
-      replyTo: email, // Set reply-to as the visitor's email
+      from: `"Contact Form" <${process.env.SMTP_USER}>`,
+      replyTo: email,
       to: process.env.EMAIL_TO,
       subject: `Nouveau message de ${name}`,
       text: `Nom: ${name}\nEmail: ${email}\nMessage: ${message}`,
@@ -62,8 +40,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       `,
     })
 
-    console.log("Sending confirmation email to visitor...")
-    // Confirmation email to visitor (simplified without React Email)
+    // Confirmation au visiteur
     await transporter.sendMail({
       from: `"Your Name" <${process.env.SMTP_USER}>`,
       to: email,
@@ -78,14 +55,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       `,
     })
 
-    console.log("Emails sent successfully.")
-    return res.status(200).json({ message: "Message envoyé avec succès !" })
+    return NextResponse.json({ message: "Message envoyé avec succès !" }, { status: 200 })
   } catch (error) {
     console.error("Erreur lors de l'envoi du mail :", error)
-    return res.status(500).json({
-      message: "Erreur interne du serveur",
-      details: error instanceof Error ? error.message : String(error),
-    })
+    return NextResponse.json(
+      {
+        message: "Erreur interne du serveur",
+        details: error instanceof Error ? error.message : String(error),
+      },
+      { status: 500 },
+    )
   }
 }
 
