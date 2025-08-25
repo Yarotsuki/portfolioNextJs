@@ -68,7 +68,7 @@ export default function About() {
 
       <div className="max-w-4xl">
   <Paragraph className="mt-4">
-    Salut, moi c&apos;est Victorien Corbel - développeur web passionné, étudiant en deuxième année de BTS SIO option SLAM, et créateur d&apos;expériences interactives. Bienvenue sur mon portfolio !
+    Salut, moi c&apos;est Victorien Corbel - développeur web passionné, titulaire d&apos;un BTS SIO option SLAM, et créateur d&apos;expériences interactives. Bienvenue sur mon portfolio !
   </Paragraph>
 
   <Paragraph className="mt-4">
