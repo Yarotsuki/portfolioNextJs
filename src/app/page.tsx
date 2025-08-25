@@ -15,7 +15,7 @@ export default function Home() {
       Bienvenue sur mon portfolio ! Je suis un etudiant passionné par le développement web{" "}
       </Paragraph>
       <Paragraph className="max-w-xl mt-4">
-        Titulaire d&apsost;un BTS SIO option SLAM, je suis passionné par le développement web. J&apos;ai commencé à apprendre le développement web au debut de ma formationet j&apos;ai appris en autodidacte en parrallèle de ce celle ci.
+        Titulaire d&apos;un BTS SIO option SLAM, je suis passionné par le développement web. J&apos;ai commencé à apprendre le développement web au debut de ma formationet j&apos;ai appris en autodidacte en parrallèle de ce celle ci.
       </Paragraph>
       <Paragraph className="max-w-xl mt-4">
         Au cours de mon parcours j&apos;ai pu apprendre à utiliser des technologies comme <Highlight>React</Highlight>, <Highlight>Next.js</Highlight>, <Highlight>Node.js</Highlight>, <Highlight>Vue.js</Highlight>, <Highlight>Nuxt.js</Highlight>,<Highlight> MySQL</Highlight>,<Highlight>PHP</Highlight>,<Highlight>TailwindCSS</Highlight>, et beaucoup bien d&apos;autres. 
