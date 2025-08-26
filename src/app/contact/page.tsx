@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 export default function Projects() {
   return (
     <Container>
-      <span className="text-4xl">✉️</span>
+    
       <Heading className="font-black mb-2">Contactez moi</Heading>
       <Paragraph className="mb-10 max-w-xl">
         Vous avez un projet, une question, ou simplement envie de discuter ?

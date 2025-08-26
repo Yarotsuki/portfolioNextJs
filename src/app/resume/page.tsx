@@ -9,7 +9,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <Container>
-      <span className="text-4xl">💼</span>
+      
       <Heading className="font-black">Mes experiences</Heading>
       <Paragraph className="max-w-xl mt-4">
         Etudiant en Developpement Web j&apos;adore {" "}

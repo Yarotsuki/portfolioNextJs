@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <Container>
-      <span className="text-4xl">💬</span>
+      
       <Heading className="font-black">A propos de moi</Heading>
       <About />
     </Container>

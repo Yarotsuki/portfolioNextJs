@@ -11,7 +11,7 @@ export const Services = () => {
     <div className="grid grid-cols-1 gap-10 md:gap-10">
       <div className="flex flex-col space-y-4">
         <Heading as="h2" className="font-black">
-          Mes Services 💼
+          Mes Services 
         </Heading>
         <Paragraph className="text-base max-w-xl">
           Je propose des solutions web sur mesure pour accompagner votre projet du concept à la mise en ligne.
@@ -70,7 +70,7 @@ export const Services = () => {
       <div className="bg-neutral-50  p-6 rounded-3xl border border-neutral-200 dark:border-neutral-800">
         <div className="text-center space-y-4">
           <Heading as="h3" className="text-black">
-            Interesser ?
+            Intéressé ?
           </Heading>
           <Paragraph className="text-base max-w-2xl mx-auto">
             Vous avez un projet spécifique en tête ? Contactez-moi pour discuter de vos besoins et obtenir un devis

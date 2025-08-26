@@ -13,7 +13,7 @@ export const services: Service[] = [
     id: 1,
     title: "Site Web Vitrine",
     description: "Création d'un site web professionnel pour présenter votre entreprise et attirer de nouveaux clients.",
-    price: "À partir de 800€",
+    price: "À partir de 300€",
     features: [
       "Design responsive",
       "Optimisation SEO",
@@ -23,21 +23,21 @@ export const services: Service[] = [
     icon: "🌐",
     popular: true,
   },
-  {
-    id: 2,
-    title: "Application Web",
-    description:
-      "Développement d'applications web sur mesure avec React/Next.js pour répondre à vos besoins spécifiques.",
-    price: "À partir de 1500€",
-    features: [
-      "Interface utilisateur moderne",
-      "Base de données intégrée",
-      "Authentification sécurisée",
-      "API personnalisée",
-      "Maintenance 3 mois",
-    ],
-    icon: "⚡",
-  },
+  //{
+  //  id: 2,
+  //  title: "Application Web",
+  //  description:
+  //    "Développement d'applications web sur mesure avec React/Next.js pour répondre à vos besoins spécifiques.",
+  //  price: "À partir de 1500€",
+  //  features: [
+  //    "Interface utilisateur moderne",
+   //   "Base de données intégrée",
+  //   "Authentification sécurisée",
+  //    "API personnalisée",
+   //   "Maintenance 3 mois",
+   // ],
+   // icon: "⚡",
+  //},
  // {
   //  id: 3,
   //  title: "E-commerce",

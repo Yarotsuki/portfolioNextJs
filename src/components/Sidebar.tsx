@@ -85,6 +85,7 @@ export const Navigation = ({
         <Link
           key={link.href}
           href={link.href}
+          target='_blank'
           className={twMerge(
             "text-secondary hover:text-primary transition duration-200 flex items-center space-x-2 py-2 px-2 rounded-md text-sm"
           )}
@@ -93,9 +94,9 @@ export const Navigation = ({
             className={twMerge(
               "h-4 w-4 flex-shrink-0",
               isActive(link.href) && "text-sky-500"
-            )}
+            )} 
           />
-          <span>{link.label}</span>
+          <span >{link.label}</span>
         </Link>
       ))}
     </div>
