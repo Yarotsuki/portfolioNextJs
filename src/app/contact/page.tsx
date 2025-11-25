@@ -5,13 +5,15 @@ import { Highlight } from "@/components/Highlight";
 import { Paragraph } from "@/components/Paragraph";
 import { Products } from "@/components/Products";
 import { Metadata } from "next";
+import { generateMetadata } from "@/lib/seo";
 import Image from "next/image";
 
-export const metadata: Metadata = {
-  title: "Contact | Victorien Corbel",
+export const metadata: Metadata = generateMetadata({
+  title: "Contact",
   description:
-    "",
-};
+    "Contactez Victorien Corbel pour des projets web, collaborations ou questions techniques.",
+  pathname: "/contact",
+});
 
 export default function Projects() {
   return (

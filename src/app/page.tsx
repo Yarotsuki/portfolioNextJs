@@ -5,6 +5,14 @@ import { Paragraph } from "@/components/Paragraph";
 import { Products } from "@/components/Products";
 import { TechStack } from "@/components/TechStack";
 import Image from "next/image";
+import { generateMetadata } from "@/lib/seo";
+
+export const metadata = generateMetadata({
+  title: "Accueil",
+  description:
+    "Portfolio de Victorien Corbel — développeur web spécialisé en création d'applications modernes avec Next.js et React.",
+  pathname: "/",
+});
 
 export default function Home() {
   return (
