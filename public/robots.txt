@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://corbeldev.fr/sitemap.xml
+Sitemap: https://www.corbeldev.fr/sitemap.xml
