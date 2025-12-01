@@ -20,7 +20,7 @@ export default function Home() {
       <span className="text-4xl">👋</span>
       <Heading className="font-black">Bonjour je suis Victorien</Heading>
       <Paragraph className="max-w-xl mt-4">
-      Bienvenue sur mon portfolio ! Je suis un etudiant passionné par le développement web{" "}
+      Bienvenue sur mon portfolio ! Je suis un passionné par le développement web{" "}
       </Paragraph>
       <Paragraph className="max-w-xl mt-4">
         Titulaire d&apos;un BTS SIO option SLAM, je suis passionné par le développement web. J&apos;ai commencé à apprendre le développement web au debut de ma formationet j&apos;ai appris en autodidacte en parrallèle de ce celle ci.

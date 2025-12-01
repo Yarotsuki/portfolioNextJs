@@ -1,5 +1,6 @@
 import bollee from "../../public/images/project/Bollée.png";
 import bqt from "../../public/images/project/BQT.png";
+import dml from "../../public/images/project/DML.png";
 
 
 export const products = [
@@ -29,7 +30,7 @@ export const products = [
     ),
   },
   {
-    href: "#",
+    href: "https://bqt-site-web-yh85.vercel.app/",
     title: "BQT Couverture",
     description:
       "Site internet pour une entreprise de couverture a Mortagne au Perche.",
@@ -54,14 +55,14 @@ export const products = [
     ),
   },
   {
-    href: "#",
-    title: "DML - sAgencement",
+    href: "https://dml-agencement.com/",
+    title: "DML - Agencement",
     description:
-      "Site internet pour une entreprise de couverture a Mortagne au Perche.",
-    thumbnail: bqt,
-    images: [bqt],
-    stack: ["NuxtJs", "Tailwindcss"],
-    slug: "bqt-couverture",
+      "Site internet pour une entreprise d&#39;agencement interieur à Saint-Ouen-Sur-Iton",
+    thumbnail: dml,
+    images: [dml],
+    stack: ["NuxtJs", "Tailwindcss", "Sanity"],
+    slug: "DML-agencement",
     content: (
       <div>
         <h2>Caractéristiques du site</h2>
