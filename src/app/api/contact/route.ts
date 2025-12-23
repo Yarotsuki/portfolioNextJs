@@ -3,9 +3,9 @@ import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
-    const { name, email, objet, message } = await req.json();
+    const { name, email, topic, message } = await req.json();
 
-    if (!name || !email || !objet || !message) {
+    if (!name || !email || !topic || !message) {
       return NextResponse.json(
         { message: "Tous les champs sont obligatoires" },
         { status: 400 },
@@ -45,7 +45,7 @@ export async function POST(req: Request) {
         <div>
           <h2>Nouveau message de contact</h2>
           <p><strong>Nom:</strong> ${name}</p>
-          <p><strong>Objet : </strong> ${objet} </p>
+          <p><strong>Objet : </strong> ${topic} </p>
           <p><strong>Email:</strong> ${email}</p>
           <p><strong>Message:</strong></p>
           <p>${message.replace(/\n/g, "<br>")}</p>
