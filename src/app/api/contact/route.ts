@@ -1,26 +1,38 @@
-import { NextResponse } from "next/server"
-import nodemailer from "nodemailer"
+import { NextResponse } from "next/server";
+import nodemailer from "nodemailer";
 
 export async function POST(req: Request) {
   try {
-    const { name, email, objet, message } = await req.json()
+    const { name, email, objet, message } = await req.json();
 
-    if (!name || !email || !objet ||  !message) {
-      return NextResponse.json({ message: "Tous les champs sont obligatoires" }, { status: 400 })
+    if (!name || !email || !objet || !message) {
+      return NextResponse.json(
+        { message: "Tous les champs sont obligatoires" },
+        { status: 400 },
+      );
     }
 
-    if (!process.env.SMTP_USER || !process.env.SMTP_PASS || !process.env.EMAIL_TO) {
-      console.error("Missing environment variables")
-      return NextResponse.json({ message: "Configuration du serveur incomplète" }, { status: 500 })
+    if (
+      !process.env.SMTP_USER ||
+      !process.env.SMTP_PASS ||
+      !process.env.EMAIL_TO
+    ) {
+      console.error("Missing environment variables");
+      return NextResponse.json(
+        { message: "Configuration du serveur incomplète" },
+        { status: 500 },
+      );
     }
 
     const transporter = nodemailer.createTransport({
-      service: "Gmail",
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false, // STARTTLS
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
-    })
+    });
 
     // Email à toi
     await transporter.sendMail({
@@ -39,7 +51,7 @@ export async function POST(req: Request) {
           <p>${message.replace(/\n/g, "<br>")}</p>
         </div>
       `,
-    })
+    });
 
     // Confirmation au visiteur
     await transporter.sendMail({
@@ -54,18 +66,20 @@ export async function POST(req: Request) {
           <p>Votre Nom</p>
         </div>
       `,
-    })
+    });
 
-    return NextResponse.json({ message: "Message envoyé avec succès !" }, { status: 200 })
+    return NextResponse.json(
+      { message: "Message envoyé avec succès !" },
+      { status: 200 },
+    );
   } catch (error) {
-    console.error("Erreur lors de l'envoi du mail :", error)
+    console.error("Erreur lors de l'envoi du mail :", error);
     return NextResponse.json(
       {
         message: "Erreur interne du serveur",
         details: error instanceof Error ? error.message : String(error),
       },
       { status: 500 },
-    )
+    );
   }
 }
-
